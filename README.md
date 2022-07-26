@@ -90,7 +90,7 @@ then add an attribute `data-content` with an [array](https://developer.mozilla.o
 
 ```
 
-View Example in [JSFiddle](https://jsfiddle.net/simplemnm/mhducezt/34/)
+View Example in [JSFiddle](https://jsfiddle.net/simplemnm/mhducezt/)
 
 <br/>
 
