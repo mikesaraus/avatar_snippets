@@ -71,7 +71,7 @@ then add an attribute `data-content` with an [array](https://developer.mozilla.o
       $('<style>.gm-avatar { width: 100%; } .avatar-group .avatar:not(:first-child) { margin-left: -1.2rem; } .avatar-lg { width: 3.5rem; height: 3.5rem; } .avatar { position: relative; display: inline-block; width: 3rem; height: 3rem; } .avatar img { width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover; } .avatar-group img { border: 3px solid #fff; } .avatar-group .avatar:hover { z-index: 2; }</style>').appendTo($('head'))
     document.querySelectorAll('.gm-avatar').forEach((e) => {
       let avatar_base_group = $('<div>', { class: 'avatar-group' })
-      let avatar_contents = e.getAttribute('data-content')
+      let avatar_contents = $(e).attr('data-content')
       avatar_contents = avatar_contents ? JSON.parse(avatar_contents) : []
       if (avatar_contents && Array.isArray(avatar_contents) && avatar_contents.length)
         avatar_contents.forEach((d) => {
@@ -80,6 +80,7 @@ then add an attribute `data-content` with an [array](https://developer.mozilla.o
           avatar_base_group.append(new_avatar)
         })
       $(e).append(avatar_base_group)
+      $(e).attr('data-content', '').removeAttr('data-content')
     })
     $('[data-toggle="tooltip"]').tooltip()
   })
