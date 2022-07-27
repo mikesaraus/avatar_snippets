@@ -1,7 +1,5 @@
 # Avatar Snippet Generator
 
----
-
 ## Usage
 Create an element with class `gm-avatar` example:
 ```html
