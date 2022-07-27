@@ -19,9 +19,9 @@ Example content format:
 ```js
 [
   {
-    avatar: 'https://cdn.freshlms.info/images-v2/avatar-1.jpg',
+    avatar: 'https://i.pravatar.cc/',
     tooltip: 'Avatar 1',
-    alt: 'Alternative Name',
+    alt: 'Random Avatar',
   }
 ]
 ```
@@ -45,9 +45,9 @@ Example content format:
 ```html
 <!-- Avatar Snippet -->
 <div
-  class="gm-avatar"
-  data-content='[{"tooltip":"Avatar 1", "avatar": "https://cdn.freshlms.info/images-v2/avatar-1.jpg"},{"tooltip":"Avatar 2", "avatar": "https://cdn.freshlms.info/images-v2/avatar-2.jpg"},{"tooltip":"Avatar 3", "avatar": "https://cdn.freshlms.info/images-v2/avatar-3.jpg"},{"tooltip":"Avatar 4", "avatar": "https://cdn.freshlms.info/images-v2/avatar-4.jpg"},{"tooltip":"Avatar 5", "avatar": "https://cdn.freshlms.info/images-v2/avatar-2.jpg"}]'
-></div>
+     class="gm-avatar"
+     data-content='[{"tooltip":"Avatar 1", "avatar": "https://i.pravatar.cc/?img=21"},{"tooltip": "Avatar 2", "avatar": "https://i.pravatar.cc/?img=22"},{"tooltip":"Avatar 3", "avatar": "https://i.pravatar.cc/?img=23"},{"tooltip":"Avatar 4", "avatar": "https://i.pravatar.cc/?img=24"},{"tooltip":"Avatar 5", "avatar": "https://i.pravatar.cc/?img=25"},{"tooltip":"Avatar 6", "avatar": "https://i.pravatar.cc/?img=26"}]'
+     ></div>
 
 <!-- Avatar Snippet Generator -->
 <script src="https://cdn.jsdelivr.net/gh/mikesaraus/avatar_snippets@main/index.min.js"></script>
