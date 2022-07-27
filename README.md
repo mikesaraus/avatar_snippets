@@ -1,11 +1,4 @@
-# Avatar Snippets Generator
-
-## Requirements
-
-| Name              | Tested Working Version | Link                                                                             |
-| ------------------------ | ---------------------- | -------------------------------------------------------------------------------- |
-| JQuery              | Version 5.0.2          | [Visit site](https://jquery.com/)                                    |
-| Bootstrap Bundle with Popper   | Version 3.6.0        | [Visit site](https://getbootstrap.com)   |
+# Avatar Snippet Generator
 
 ---
 
@@ -17,22 +10,24 @@ Create an element with class `gm-avatar` example:
 <div class="gm-avatar"></div>
 ```
 
-then add an attribute `data-content` with an [array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) value of [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) example content format:
+Then add an attribute `data-content` with an [array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) value of [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object).
+
+Example content format:
 ```js
 [
     {
-        "tooltip" : "Avatar 1",
         "avatar": "https://cdn.freshlms.info/images-v2/avatar-1.jpg",
+        "tooltip" : "Avatar 1",
         "alt": "Alternative Name"
     }
 ]
 ```
 
-#### `tooltip`
-(Optional) The title that will appear when you hover the image.
-
 #### `avatar` | `img` | `src`
 (Required) The image url. Any of these keys is allowed but will only read 1 value.
+
+#### `tooltip`
+(Optional) The title that will appear when you hover the image.
 
 ### `alt`
 (Optional) The image alt attribute value.
@@ -41,58 +36,19 @@ then add an attribute `data-content` with an [array](https://developer.mozilla.o
 
 ### Full Example
 ```html
-<!-- In Header -->
-<head>
-    <!-- Bootstrap 5 Style -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-        crossorigin="anonymous"
-    />
-</head>
-<body>
-<!-- Creating Avatar Snippet -->
+<!-- Avatar Snippet -->
  <div
     class="gm-avatar"
     data-content='[{"tooltip":"Avatar 1", "avatar": "https://cdn.freshlms.info/images-v2/avatar-1.jpg"},{"tooltip": "Avatar 2", "avatar": "https://cdn.freshlms.info/images-v2/avatar-2.jpg"},{"tooltip":"Avatar 3", "avatar": "https://cdn.freshlms.info/images-v2/avatar-3.jpg"},{"tooltip":"Avatar 4", "avatar": "https://cdn.freshlms.info/images-v2/avatar-4.jpg"},{"tooltip":"Avatar 5", "avatar": "https://cdn.freshlms.info/images-v2/avatar-2.jpg"}]'
   ></div>
 
-
-<!-- In Footer -->
-<!-- JQuery 3.6 Script -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<!-- Bootstrap 5 Script -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<!-- The Avatar Snippet Script -->
-<script>
-(function () {
-  $(document).ready(function () {
-      $('<style>.gm-avatar { width: 100%; } .avatar-group .avatar:not(:first-child) { margin-left: -1.2rem; } .avatar-lg { width: 3.5rem; height: 3.5rem; } .avatar { position: relative; display: inline-block; width: 3rem; height: 3rem; } .avatar img { width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover; } .avatar-group img { border: 3px solid #fff; } .avatar-group .avatar:hover { z-index: 2; }</style>').appendTo($('head'))
-    document.querySelectorAll('.gm-avatar').forEach((e) => {
-      let avatar_base_group = $('<div>', { class: 'avatar-group' })
-      let avatar_contents = $(e).attr('data-content')
-      avatar_contents = avatar_contents ? JSON.parse(avatar_contents) : []
-      if (avatar_contents && Array.isArray(avatar_contents) && avatar_contents.length)
-        avatar_contents.forEach((d) => {
-          let new_avatar = $('<span>', { class: 'avatar avatar-lg' })
-          new_avatar.html('<img alt="' + (d.alt || 'avatar') + '" data-toggle="tooltip" title="' + d.tooltip + '" class="rounded-circle" src="' + (d.avatar || d.img || d.src) + '" />')
-          avatar_base_group.append(new_avatar)
-        })
-      $(e).append(avatar_base_group)
-      $(e).attr('data-content', '').removeAttr('data-content')
-    })
-    $('[data-toggle="tooltip"]').tooltip()
-  })
-})()
+<!-- Avatar Snippet Generator -->
+<script type="text/javascript">
+(function() { document.addEventListener("DOMContentLoaded", () => { const css = 'LmdtLWF2YXRhciB7IHdpZHRoOiAxMDAlOyB9IC5nbS1hdmF0YXIgLmF2YXRhci1ncm91cCAuYXZhdGFyOm5vdCg6Zmlyc3QtY2hpbGQpIHsgbWFyZ2luLWxlZnQ6IC0xLjJyZW07IH0gLmdtLWF2YXRhciAuYXZhdGFyLWxnIHsgd2lkdGg6IDMuNXJlbTsgaGVpZ2h0OiAzLjVyZW07IH0gLmdtLWF2YXRhciAuYXZhdGFyIHsgcG9zaXRpb246IHJlbGF0aXZlOyBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7IHdpZHRoOiAzcmVtOyBoZWlnaHQ6IDNyZW07IH0gLmdtLWF2YXRhciAuYXZhdGFyIGltZyB7IHdpZHRoOiAxMDAlOyBoZWlnaHQ6IDEwMCU7IC1vLW9iamVjdC1maXQ6IGNvdmVyOyBvYmplY3QtZml0OiBjb3ZlcjsgfSAuZ20tYXZhdGFyIC5hdmF0YXItZ3JvdXAgaW1nIHsgYm9yZGVyOiAzcHggc29saWQgI2ZmZjsgfSAuZ20tYXZhdGFyIC5hdmF0YXItZ3JvdXAgLmF2YXRhcjpob3ZlciB7IHotaW5kZXg6IDI7IH0gLmdtLWF2YXRhciBpbWcgeyBib3JkZXItcmFkaXVzOiA1MCU7IH0gLmdtLWF2YXRhciBbZ20tdG9vbHRpcF0geyBwb3NpdGlvbjogcmVsYXRpdmU7IGN1cnNvcjogcG9pbnRlcjsgfSAuZ20tYXZhdGFyIFtnbS10b29sdGlwXTpiZWZvcmUsIC5nbS1hdmF0YXIgW2dtLXRvb2x0aXBdOmFmdGVyIHsgdmlzaWJpbGl0eTogaGlkZGVuOyBvcGFjaXR5OiAwOyBwb2ludGVyLWV2ZW50czogbm9uZTsgfSAuZ20tYXZhdGFyIFtnbS10b29sdGlwXTpiZWZvcmUgeyBjb250ZW50OiAiIjsgd2lkdGg6IDA7IGhlaWdodDogMDsgb3BhY2l0eTogMDsgdmlzaWJpbGl0eTogaGlkZGVuOyBwb3NpdGlvbjogYWJzb2x1dGU7IGJvcmRlci1sZWZ0OiBzb2xpZCA1cHggdHJhbnNwYXJlbnQ7IGJvcmRlci1yaWdodDogc29saWQgNXB4IHRyYW5zcGFyZW50OyBib3JkZXItdG9wOiBzb2xpZCA1cHggZ3JleTsgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpIHRyYW5zbGF0ZVkoLTJweCk7IHRvcDogMDsgbGVmdDogNTAlOyB0cmFuc2l0aW9uOiBvcGFjaXR5IDAuMnMgY3ViaWMtYmV6aWVyKDAuNjQsIDAuMDksIDAuMDgsIDEpLCB0cmFuc2Zvcm0gMC4ycyBjdWJpYy1iZXppZXIoMC42NCwgMC4wOSwgMC4wOCwgMSk7IHotaW5kZXg6IDM7IH0gLmdtLWF2YXRhciBbZ20tdG9vbHRpcF06YWZ0ZXIgeyBvcGFjaXR5OiAwOyB2aXNpYmlsaXR5OiBoaWRkZW47IHBvc2l0aW9uOiBhYnNvbHV0ZTsgY29udGVudDogYXR0cihnbS10b29sdGlwKTsgcGFkZGluZzogNnB4IDEwcHg7IGJvdHRvbTogY2FsYygxMDAlICsgM3B4KTsgbGVmdDogNTAlOyB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoLTUwJSkgdHJhbnNsYXRlWSgycHgpOyBiYWNrZ3JvdW5kOiBncmV5OyBjb2xvcjogd2hpdGU7IHdoaXRlLXNwYWNlOiBub3dyYXA7IHotaW5kZXg6IDI7IGJvcmRlci1yYWRpdXM6IDJweDsgdHJhbnNpdGlvbjogb3BhY2l0eSAwLjJzIGN1YmljLWJlemllcigwLjY0LCAwLjA5LCAwLjA4LCAxKSwgdHJhbnNmb3JtIDAuMnMgY3ViaWMtYmV6aWVyKDAuNjQsIDAuMDksIDAuMDgsIDEpOyB9IC5nbS1hdmF0YXIgW2dtLXRvb2x0aXBdOmhvdmVyOmJlZm9yZSwgLmdtLWF2YXRhciBbZ20tdG9vbHRpcF06aG92ZXI6YWZ0ZXIgeyB2aXNpYmlsaXR5OiB2aXNpYmxlOyBvcGFjaXR5OiAxOyB9IC5nbS1hdmF0YXIgLmF2YXRhciB7IGhlaWdodDogMTAwJSAhaW1wb3J0YW50OyB9', head = document.head || document.getElementsByTagName('head')[0], style = document.createElement('style'); head.appendChild(style); style.type = 'text/css'; if (style.styleSheet) { style.styleSheet.cssText = atob(css) } else { style.appendChild(document.createTextNode(atob(css))) } document.querySelectorAll('.gm-avatar').forEach((e) => { let avatar_group = document.createElement('div'); avatar_group.classList.add('avatar-group'); let avatar_contents = e.getAttribute('data-content'); avatar_contents = avatar_contents ? JSON.parse(avatar_contents) : []; if (avatar_contents && Array.isArray(avatar_contents) && avatar_contents.length) { avatar_contents.forEach((d) => { let new_avatar = document.createElement('span'); new_avatar.classList.add('avatar', 'avatar-lg'); if (d.tooltip) new_avatar.setAttribute('gm-tooltip', d.tooltip); let img = document.createElement('img'); img.src = d.avatar || d.img || d.src; if (d.alt) img.alt = d.alt; new_avatar.appendChild(img); avatar_group.appendChild(new_avatar); }) } e.appendChild(avatar_group); e.removeAttribute('data-content'); }) }) })()
 </script>
-</body>
-
 ```
 
 View Example in [JSFiddle](https://jsfiddle.net/simplemnm/mhducezt/34/)
-
-<br/>
 
 <hr/>
 
