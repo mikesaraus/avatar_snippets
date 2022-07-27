@@ -2,8 +2,6 @@
 
 ---
 
-<br/>
-
 ## Usage
 Create an element with class `gm-avatar` example:
 ```html
