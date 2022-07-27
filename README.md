@@ -4,7 +4,9 @@
 
 ## Usage
 
-Create an element with class `gm-avatar` example:
+Create an element with class `gm-avatar`.
+
+Example:
 
 ```html
 <div class="gm-avatar"></div>
@@ -15,12 +17,12 @@ Then add an attribute `data-content` with an [array](https://developer.mozilla.o
 Example content format:
 
 ```js
-;[
+[
   {
     avatar: 'https://cdn.freshlms.info/images-v2/avatar-1.jpg',
     tooltip: 'Avatar 1',
     alt: 'Alternative Name',
-  },
+  }
 ]
 ```
 
