@@ -20,8 +20,11 @@
         avatar_contents.forEach((d) => {
           let new_avatar = document.createElement('span');
           new_avatar.classList.add('avatar', 'avatar-lg');
-          new_avatar.setAttribute('gm-tooltip', d.tooltip);
-          new_avatar.innerHTML = '<img alt="' + (d.alt || 'avatar') + '" src="' + (d.avatar || d.img || d.src) + '" />';
+          if (d.tooltip) new_avatar.setAttribute('gm-tooltip', d.tooltip);
+          let img = document.createElement('img');
+          img.src = d.avatar || d.img || d.src;
+          if (d.alt) img.alt = d.alt;
+          new_avatar.appendChild(img);
           avatar_group.appendChild(new_avatar);
         })
       }
