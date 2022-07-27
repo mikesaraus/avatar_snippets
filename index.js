@@ -15,7 +15,7 @@
       let avatar_group = document.createElement('div');
       avatar_group.classList.add('avatar-group');
       let avatar_contents = e.getAttribute('data-content');
-      avatar_contents = avatar_contents ? JSON.parse(avatar_contents) : [];
+      try { avatar_contents = JSON.parse(avatar_contents) } catch(e) { avatar_contents = [] }
       if (avatar_contents && Array.isArray(avatar_contents) && avatar_contents.length) {
         avatar_contents.forEach((d) => {
           let new_avatar = document.createElement('span');
