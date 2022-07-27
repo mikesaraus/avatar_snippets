@@ -19,9 +19,9 @@ Example content format:
 ```js
 [
   {
-    avatar: 'https://i.pravatar.cc/',
-    tooltip: 'Avatar 1',
-    alt: 'Random Avatar',
+    "avatar": "https://i.pravatar.cc/",
+    "tooltip": "Avatar 1",
+    "alt": "Random Avatar",
   }
 ]
 ```
