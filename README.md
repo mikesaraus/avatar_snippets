@@ -56,5 +56,3 @@ Example content format:
 View Example in [JSFiddle](https://jsfiddle.net/simplemnm/mhducezt/)
 
 <hr/>
-
-### ©[GrowModo](https://growmodo.com)
